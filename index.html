@@ -240,6 +240,9 @@
   form textarea{resize:vertical;min-height:110px}
   form .btn{width:100%;justify-content:center;padding:15px;font-size:1rem;border:none;cursor:pointer;margin-top:6px}
   form .privacy{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center}
+  .form-status{margin-top:16px;padding:14px 16px;border-radius:9px;font-size:.9rem;line-height:1.7}
+  .form-status.ok{background:#e8f5ec;color:#1e6b3a;border:1px solid #b8e0c4}
+  .form-status.err{background:#fdecea;color:#b3261e;border:1px solid #f5c6c2}
 
   /* ---------- Footer ---------- */
   footer{background:var(--navy);color:rgba(255,255,255,.7);padding:56px 0 28px}
@@ -312,9 +315,8 @@
       <a href="#services" class="btn outline-w big">サービスを見る</a>
     </div>
     <div class="hero-stats reveal">
-      <div class="st"><div class="num">120<span style="font-size:1.1rem">組合+</span></div><div class="lbl">相談・サポート実績</div></div>
       <div class="st"><div class="num">5<span style="font-size:1.1rem">年</span></div><div class="lbl">業界での実務経験</div></div>
-      <div class="st"><div class="num">98<span style="font-size:1.1rem">%</span></div><div class="lbl">相談者満足度</div></div>
+      <div class="st"><div class="num">8<span style="font-size:1.1rem">資格</span></div><div class="lbl">国家資格を含む取得資格</div></div>
     </div>
   </div>
 </section>
@@ -363,8 +365,8 @@
       <div class="feat-card reveal">
         <span class="feat-num">03</span>
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>コスト削減の実績</h3>
-        <p>管理委託費の見直しで年間数十万円〜のコスト削減を実現した事例も。無駄を省き、大切な積立金を守ります。</p>
+        <h3>管理会社の"内側"を熟知</h3>
+        <p>管理会社側での実務経験があるからこそ、委託費や契約の"適正ライン"を見抜けます。無駄を省き、大切な積立金を守ります。</p>
       </div>
       <div class="feat-card reveal">
         <span class="feat-num">04</span>
@@ -495,13 +497,17 @@
         <div class="role">マンション管理士 / 代表</div>
         <h3>坂本 健吾<span>Kengo Sakamoto</span></h3>
         <p class="greet">「住んでよかった」と思えるマンションを、住民のみなさまと。</p>
-        <p>マンション管理業界で実務に携わる中で、管理会社と管理組合の間にある「情報の非対称」に課題を感じ、独立系のマンション管理士として事務所を開設しました。</p>
-        <p>専門的な内容もかみくだいて丁寧にお伝えすることを大切にしています。理事のみなさまが安心して意思決定できるよう、中立・公正な立場で誠実にサポートいたします。どんな小さなお悩みでも、まずはお気軽にご相談ください。</p>
+        <p>分譲マンション管理の最前線で実務に携わり、管理計画認定制度の取得支援や外部管理者制度の導入など、資産価値の向上につながる提案に取り組んでまいりました。管理会社の内側を知るからこそ、委託費や契約内容の"適正"を見抜くことができます。</p>
+        <p>その経験を、今度は管理組合のみなさまのために活かしたい――。そんな思いから、独立系のマンション管理士として活動しています。専門的な内容もかみくだいて丁寧にお伝えし、理事のみなさまが安心して意思決定できるよう、中立・公正な立場で誠実にサポートいたします。</p>
         <ul class="qual-list">
-          <li>国家資格 マンション管理士</li>
+          <li>マンション管理士（国家資格）</li>
           <li>管理業務主任者</li>
           <li>宅地建物取引士</li>
-          <li>実務経験 5年</li>
+          <li>賃貸不動産経営管理士</li>
+          <li>マンション維持修繕技術者</li>
+          <li>2級ファイナンシャル・プランニング技能士</li>
+          <li>日商簿記検定2級</li>
+          <li>ITパスポート</li>
         </ul>
       </div>
     </div>
@@ -566,7 +572,7 @@
           <div><div class="lbl">対応エリア</div><div class="val" style="font-size:1rem">○○県全域（近隣エリアもご相談ください）</div></div>
         </div>
       </div>
-      <form onsubmit="return handleSubmit(event)">
+      <form id="contactForm">
         <div class="frow"><label>お名前<span class="req">必須</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
         <div class="frow"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
         <div class="frow"><label>電話番号</label><input type="tel" name="tel" placeholder="090-0000-0000"></div>
@@ -582,7 +588,8 @@
           </select>
         </div>
         <div class="frow"><label>お問い合わせ内容<span class="req">必須</span></label><textarea name="message" required placeholder="お悩みやご相談内容をご記入ください。"></textarea></div>
-        <button type="submit" class="btn">この内容で送信する</button>
+        <button type="submit" class="btn" id="submitBtn">この内容で送信する</button>
+        <p id="formStatus" class="form-status" hidden></p>
         <p class="privacy">送信いただいた個人情報は、お問い合わせ対応の目的のみに使用します。</p>
       </form>
     </div>
@@ -632,12 +639,40 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // form (placeholder)
-  function handleSubmit(e){
-    e.preventDefault();
-    alert('お問い合わせありがとうございます。\n\n※ こちらはデモ用のフォームです。実際に送信するには、メール送信サービス（Formspreeなど）との連携設定が必要です。');
-    return false;
+  // ===== お問い合わせフォーム（Formspree）=====
+  // ↓↓↓ Formspree登録後に発行される送信先URLをここに貼り替えてください ↓↓↓
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+  // ↑↑↑ 例: https://formspree.io/f/abcdwxyz ↑↑↑
+  const form=document.getElementById('contactForm');
+  const statusEl=document.getElementById('formStatus');
+  const submitBtn=document.getElementById('submitBtn');
+  function showStatus(msg,type){
+    statusEl.textContent=msg;statusEl.className='form-status '+type;statusEl.hidden=false;
+    statusEl.scrollIntoView({behavior:'smooth',block:'center'});
   }
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    if(FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')){
+      showStatus('※ お問い合わせフォームは現在準備中です。お手数ですが、お電話またはメール（info欄）よりご連絡ください。','err');
+      return;
+    }
+    submitBtn.disabled=true;submitBtn.textContent='送信中…';
+    try{
+      const res=await fetch(FORMSPREE_ENDPOINT,{
+        method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}
+      });
+      if(res.ok){
+        form.reset();
+        showStatus('お問い合わせありがとうございます。内容を送信しました。2〜3営業日以内にご返信いたします。','ok');
+      }else{
+        showStatus('送信に失敗しました。お手数ですが、お電話またはメールにてご連絡ください。','err');
+      }
+    }catch(_){
+      showStatus('送信に失敗しました。通信環境をご確認のうえ、再度お試しください。','err');
+    }finally{
+      submitBtn.disabled=false;submitBtn.textContent='この内容で送信する';
+    }
+  });
 </script>
 </body>
 </html>

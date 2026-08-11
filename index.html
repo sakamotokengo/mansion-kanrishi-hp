@@ -245,6 +245,11 @@
   .form-status{margin-top:16px;padding:14px 16px;border-radius:9px;font-size:.9rem;line-height:1.7}
   .form-status.ok{background:#e8f5ec;color:#1e6b3a;border:1px solid #b8e0c4}
   .form-status.err{background:#fdecea;color:#b3261e;border:1px solid #f5c6c2}
+  .contact-cta{background:var(--bg-soft);border-radius:var(--radius);padding:38px 34px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+  .contact-cta h3{font-family:"Noto Serif JP",serif;font-size:1.35rem;color:var(--navy)}
+  .contact-cta p{font-size:.93rem;color:var(--muted)}
+  .contact-cta .cta-btn{justify-content:center;padding:16px;font-size:1rem;width:100%}
+  .contact-cta .cta-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:2px;line-height:1.7}
 
   /* ---------- Footer ---------- */
   footer{background:var(--navy);color:rgba(255,255,255,.7);padding:56px 0 28px}
@@ -482,7 +487,7 @@
       <p class="sec-desc">お問い合わせから解決まで、4つのステップで進めます。</p>
     </div>
     <div class="flow-steps">
-      <div class="flow-step reveal"><div class="step-no">1</div><h4>お問い合わせ</h4><p>フォーム・お電話・メールからお気軽にご連絡ください。ご要望を伺います。</p></div>
+      <div class="flow-step reveal"><div class="step-no">1</div><h4>お問い合わせ</h4><p>お電話・メールからお気軽にご連絡ください。ご要望を伺います。</p></div>
       <div class="flow-step reveal"><div class="step-no">2</div><h4>ヒアリング（無料）</h4><p>現状と課題を詳しくお聞きし、解決の方向性と概算をご提案します。</p></div>
       <div class="flow-step reveal"><div class="step-no">3</div><h4>ご契約・調査</h4><p>ご納得いただいた上でご契約。資料精査や現地確認を行います。</p></div>
       <div class="flow-step reveal"><div class="step-no">4</div><h4>サポート開始</h4><p>具体的な提案・交渉・運営支援を実行。課題解決まで伴走します。</p></div>
@@ -545,7 +550,7 @@
   <div class="wrap">
     <div class="cta-band reveal">
       <h2>まずは無料相談から始めませんか？</h2>
-      <p>お電話・メール・フォームいずれでもお気軽にどうぞ。<br>あなたのマンションの課題解決に向けて、第一歩をお手伝いします。</p>
+      <p>お電話・メールでお気軽にどうぞ。<br>あなたのマンションの課題解決に向けて、第一歩をお手伝いします。</p>
       <div class="hero-cta">
         <a href="#contact" class="btn white big">無料相談を申し込む &nbsp;→</a>
       </div>
@@ -559,7 +564,7 @@
     <div class="sec-head reveal">
       <div class="sec-label">Contact</div>
       <h2 class="sec-title">お問い合わせ</h2>
-      <p class="sec-desc">下記フォーム、またはお電話・メールにてお気軽にご連絡ください。</p>
+      <p class="sec-desc">お電話・メールにてお気軽にご連絡ください。初回相談は無料です。</p>
     </div>
     <div class="contact-wrap">
       <div class="contact-info reveal">
@@ -581,26 +586,13 @@
           <div><div class="lbl">対応エリア</div><div class="val" style="font-size:1rem">東京・神奈川・埼玉・千葉<span style="font-size:.82rem;color:var(--muted);font-weight:400;font-family:'Noto Sans JP',sans-serif;display:block">調布市を拠点に、首都圏を中心に対応（エリア外もお気軽にご相談ください）</span></div></div>
         </div>
       </div>
-      <form id="contactForm">
-        <div class="frow"><label>お名前<span class="req">必須</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
-        <div class="frow"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
-        <div class="frow"><label>電話番号</label><input type="tel" name="tel" placeholder="090-0000-0000"></div>
-        <div class="frow"><label>ご相談の種類</label>
-          <select name="type">
-            <option>初回無料相談</option>
-            <option>管理委託費の見直し</option>
-            <option>大規模修繕について</option>
-            <option>総会・理事会の運営</option>
-            <option>顧問契約について</option>
-            <option>セミナー・研修の依頼</option>
-            <option>その他</option>
-          </select>
-        </div>
-        <div class="frow"><label>お問い合わせ内容<span class="req">必須</span></label><textarea name="message" required placeholder="お悩みやご相談内容をご記入ください。"></textarea></div>
-        <button type="submit" class="btn" id="submitBtn">この内容で送信する</button>
-        <p id="formStatus" class="form-status" hidden></p>
-        <p class="privacy">送信いただいた個人情報は、お問い合わせ対応の目的のみに使用します。</p>
-      </form>
+      <div class="contact-cta">
+        <h3>まずはお気軽にご連絡ください</h3>
+        <p>初回相談は無料です。オンラインでのご相談にも対応しております。下記のボタンよりお気軽にどうぞ。</p>
+        <a href="mailto:kengo971114@gmail.com?subject=マンション管理のご相談&body=お名前：%0D%0A%0D%0Aご相談内容：%0D%0A%0D%0Aお電話番号：" class="btn cta-btn">✉&nbsp;&nbsp;メールで相談する</a>
+        <a href="tel:09085136765" class="btn ghost cta-btn">☎&nbsp;&nbsp;電話で相談する（090-8513-6765）</a>
+        <p class="cta-note">※ メールボタンを押すと、ご利用のメールソフトが起動します。うまく起動しない場合は、<strong>kengo971114@gmail.com</strong> まで直接お送りください。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -649,40 +641,7 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // ===== お問い合わせフォーム（Formspree）=====
-  // ↓↓↓ Formspree登録後に発行される送信先URLをここに貼り替えてください ↓↓↓
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-  // ↑↑↑ 例: https://formspree.io/f/abcdwxyz ↑↑↑
-  const form=document.getElementById('contactForm');
-  const statusEl=document.getElementById('formStatus');
-  const submitBtn=document.getElementById('submitBtn');
-  function showStatus(msg,type){
-    statusEl.textContent=msg;statusEl.className='form-status '+type;statusEl.hidden=false;
-    statusEl.scrollIntoView({behavior:'smooth',block:'center'});
-  }
-  form.addEventListener('submit',async(e)=>{
-    e.preventDefault();
-    if(FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')){
-      showStatus('※ お問い合わせフォームは現在準備中です。お手数ですが、お電話またはメール（info欄）よりご連絡ください。','err');
-      return;
-    }
-    submitBtn.disabled=true;submitBtn.textContent='送信中…';
-    try{
-      const res=await fetch(FORMSPREE_ENDPOINT,{
-        method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}
-      });
-      if(res.ok){
-        form.reset();
-        showStatus('お問い合わせありがとうございます。内容を送信しました。2〜3営業日以内にご返信いたします。','ok');
-      }else{
-        showStatus('送信に失敗しました。お手数ですが、お電話またはメールにてご連絡ください。','err');
-      }
-    }catch(_){
-      showStatus('送信に失敗しました。通信環境をご確認のうえ、再度お試しください。','err');
-    }finally{
-      submitBtn.disabled=false;submitBtn.textContent='この内容で送信する';
-    }
-  });
+  // お問い合わせはメール（mailto）・電話（tel）リンクで直接受付
 </script>
 </body>
 </html>

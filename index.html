@@ -173,21 +173,35 @@
   .plan-card li.excl:before{content:"";left:4px;top:12px;width:10px;height:0;border:none;border-top:2px solid var(--muted);transform:none;border-radius:2px}
   .plan-card .plan-inherit{font-size:.82rem;font-weight:700;color:var(--navy);background:var(--bg-soft2);padding:8px 12px;border-radius:8px;margin-bottom:4px}
 
-  /* ---------- Price accordion ---------- */
+  /* ---------- Price notes ---------- */
   .price-note{color:var(--muted);font-size:.86rem;margin:26px auto 0;max-width:860px;line-height:1.85;background:var(--bg-soft);border-radius:12px;padding:18px 22px;border:1px solid var(--line)}
-  .price-acc{max-width:860px;margin:40px auto 0;display:flex;flex-direction:column;gap:14px}
-  .acc-item{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:box-shadow .2s}
-  .acc-item[open]{box-shadow:var(--shadow)}
-  .acc-item summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:12px;font-weight:600;color:var(--navy);font-family:"Noto Serif JP",serif;font-size:1.02rem}
-  .acc-item summary::-webkit-details-marker{display:none}
-  .acc-item summary .arrow{margin-left:auto;flex-shrink:0;width:11px;height:11px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .25s}
-  .acc-item[open] summary .arrow{transform:rotate(-135deg)}
-  .acc-body{padding:2px 24px 20px}
-  .price-row{display:flex;justify-content:space-between;gap:18px;align-items:baseline;padding:12px 0;border-top:1px dashed var(--line)}
-  .price-row:first-child{border-top:none}
-  .price-row .pname{font-size:.9rem;color:var(--ink)}
-  .price-row .pamt{font-family:"Noto Serif JP",serif;font-weight:700;color:var(--navy);white-space:nowrap;font-size:.96rem}
-  .price-row .pamt small{font-weight:400;color:var(--muted);font-size:.76rem}
+  .plan-price .guide{display:inline-block;font-size:.68rem;font-weight:700;color:var(--gold);background:rgba(169,125,62,.1);padding:2px 9px;border-radius:6px;margin-right:8px;vertical-align:middle;font-family:"Noto Sans JP",sans-serif}
+  .plan-price .amt{font-size:1.55rem}
+
+  /* ---------- Price: 考え方 ---------- */
+  .price-logic{max-width:960px;margin:0 auto 44px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 34px 30px}
+  .price-logic h3{font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1.15rem;text-align:center;margin-bottom:6px}
+  .price-logic .pl-sub{text-align:center;color:var(--muted);font-size:.9rem;margin-bottom:26px}
+  .price-logic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pl-item{background:var(--bg-soft);border-radius:12px;padding:24px 20px;text-align:center}
+  .pl-item .pl-ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-2));display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .pl-item .pl-ic svg{width:24px;height:24px;stroke:var(--gold-2)}
+  .pl-item h4{font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1rem;margin-bottom:8px}
+  .pl-item p{font-size:.85rem;color:var(--muted);line-height:1.75}
+  .price-logic .pl-foot{margin-top:22px;text-align:center;font-size:.88rem;color:var(--ink);background:rgba(169,125,62,.08);border:1px solid rgba(169,125,62,.25);border-radius:10px;padding:14px 18px;line-height:1.75}
+
+  /* ---------- Price: スポット業務カード ---------- */
+  .spot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
+  .spot-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .spot-card .sc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .spot-card h4{font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1.1rem;font-weight:600}
+  .badge-online{font-size:.7rem;font-weight:700;color:#1e6b3a;background:#e6f4ea;border:1px solid #b8e0c4;padding:4px 11px;border-radius:999px;white-space:nowrap}
+  .badge-visit{font-size:.7rem;font-weight:700;color:var(--navy);background:var(--bg-soft2);padding:4px 11px;border-radius:999px;white-space:nowrap}
+  .spot-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+  .spot-card li{font-size:.86rem;color:var(--ink);padding-left:21px;position:relative;line-height:1.65}
+  .spot-card li:before{content:"";position:absolute;left:3px;top:9px;width:10px;height:6px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+  .spot-card .sc-price{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;font-size:.84rem;color:var(--muted);line-height:1.7}
+  .spot-card .sc-price strong{font-family:"Noto Serif JP",serif;color:var(--navy);font-size:1.02rem;font-weight:700}
 
   /* ---------- New build ---------- */
   .newbuild-card{
@@ -324,9 +338,10 @@
     .hero-stats{gap:28px}
     .cta-band{padding:44px 24px}
     .nb-right ul{grid-template-columns:1fr}
+    .price-logic-grid{grid-template-columns:1fr}
+    .spot-grid{grid-template-columns:1fr}
+    .price-logic{padding:28px 22px}
     .notice{padding:26px 22px}
-    .price-row{flex-direction:column;gap:2px}
-    .price-row .pamt{align-self:flex-start}
   }
 </style>
 </head>
@@ -473,16 +488,40 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-label">Price</div>
-      <h2 class="sec-title">料金プラン</h2>
-      <p class="sec-desc">継続的に支える「顧問サービス」と、必要なときだけ依頼できる「スポット業務」をご用意しています。表示はすべて税込です。</p>
+      <h2 class="sec-title">料金の考え方</h2>
+      <p class="sec-desc">細かな価格表ではなく、「対応できる業務範囲」と「どう料金を決めるか」でご説明します。表示はすべて税込・目安です。</p>
     </div>
 
-    <h3 class="serif reveal" style="text-align:center;color:var(--navy);font-size:1.15rem;margin-bottom:24px">顧問サービス（月額・継続支援）</h3>
+    <div class="price-logic reveal">
+      <h3>料金は、この3つの組み合わせで決まります</h3>
+      <p class="pl-sub">同じ業務でも、分量や進め方によって適正な料金は変わります。</p>
+      <div class="price-logic-grid">
+        <div class="pl-item">
+          <div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+          <h4>① 想定される対応人工</h4>
+          <p>資料の分量や作業のボリュームに応じて、必要な工数（人工）を見積もります。</p>
+        </div>
+        <div class="pl-item">
+          <div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+          <h4>② 対応方法</h4>
+          <p>オンライン中心の対応は費用を抑えめに。現地訪問を伴う場合は、その分を加味します。</p>
+        </div>
+        <div class="pl-item">
+          <div class="pl-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg></div>
+          <h4>③ 現地訪問の要否</h4>
+          <p>規約改正や長期修繕計画の作成など、訪問なしで進められる業務は、コストを抑えられます。</p>
+        </div>
+      </div>
+      <div class="pl-foot">実際の料金は、初回相談で業務範囲を確認したうえで、お見積りとしてご提示します。交通費は実費、遠方対応は別途ご相談です。</div>
+    </div>
+
+    <h3 class="serif reveal" style="text-align:center;color:var(--navy);font-size:1.15rem;margin-bottom:8px">顧問サービス（月額・継続支援）</h3>
+    <p class="sec-desc reveal" style="text-align:center;margin-bottom:26px">継続してご一緒する場合の目安です。業務範囲に応じて3つのプランをご用意しています。</p>
     <div class="plan-grid">
       <div class="plan-card reveal">
         <h3>オンライン相談顧問</h3>
-        <div class="plan-price"><span class="amt">16,500</span><span class="tax">円（税込）／月</span></div>
-        <div class="plan-min">最低契約期間 6か月</div>
+        <div class="plan-price"><span class="guide">目安</span><span class="amt">16,500</span><span class="tax">円〜（税込）／月</span></div>
+        <div class="plan-min">最低契約期間 6か月／正式はお見積り</div>
         <ul>
           <li>メール相談 月3件程度</li>
           <li>オンライン面談 月1回・60分まで</li>
@@ -493,8 +532,8 @@
       <div class="plan-card featured reveal">
         <span class="ribbon">標準的なプラン</span>
         <h3>理事会伴走顧問</h3>
-        <div class="plan-price"><span class="amt">44,000</span><span class="tax">円〜（税込）／月</span></div>
-        <div class="plan-min">継続的な理事会サポート</div>
+        <div class="plan-price"><span class="guide">目安</span><span class="amt">44,000</span><span class="tax">円〜（税込）／月</span></div>
+        <div class="plan-min">継続的な理事会サポート／正式はお見積り</div>
         <ul>
           <li>理事会出席 年4回まで／通常総会出席 年1回</li>
           <li>オンライン打合せ 月1回・メール相談</li>
@@ -507,8 +546,8 @@
       </div>
       <div class="plan-card reveal">
         <h3>管理適正化顧問</h3>
-        <div class="plan-price"><span class="amt">66,000</span><span class="tax">円〜（税込）／月</span></div>
-        <div class="plan-min">認定・評価制度まで対応</div>
+        <div class="plan-price"><span class="guide">目安</span><span class="amt">66,000</span><span class="tax">円〜（税込）／月</span></div>
+        <div class="plan-min">認定・評価制度まで対応／正式はお見積り</div>
         <ul>
           <li class="plan-inherit">「理事会伴走顧問」の全業務を含みます</li>
           <li>理事会出席 年6回まで</li>
@@ -523,53 +562,54 @@
       </div>
     </div>
 
-    <p class="price-note reveal">表示はすべて税込・標準的な目安です。料金は、マンションの<strong>戸数・棟数・用途（住居／店舗等）・会計区分・管理方式・理事会の開催回数・所在地・現在抱えている課題</strong>によって変わります。正式な料金は、初回相談でのヒアリング後にお見積りとしてご提示します。</p>
+    <p class="price-note reveal">月額はいずれも税込の目安です。マンションの規模・棟数・管理方式・理事会の開催回数・対応方法などにより変わります。正式な料金は、業務範囲を確認のうえお見積りします。</p>
 
     <h3 class="serif reveal" style="text-align:center;color:var(--navy);font-size:1.15rem;margin:56px 0 8px">スポット業務（必要なときだけ・単発）</h3>
-    <p class="sec-desc reveal" style="text-align:center">カテゴリをタップすると料金の目安が開きます。</p>
-    <div class="price-acc">
-      <details class="acc-item reveal">
-        <summary>相談・会議への出席<span class="arrow"></span></summary>
-        <div class="acc-body">
-          <div class="price-row"><span class="pname">個別オンライン相談（60分）</span><span class="pamt">11,000円</span></div>
-          <div class="price-row"><span class="pname">訪問相談（2時間）</span><span class="pamt">22,000円 <small>＋交通費</small></span></div>
-          <div class="price-row"><span class="pname">理事会出席（2時間）</span><span class="pamt">33,000円 <small>＋交通費</small></span></div>
-          <div class="price-row"><span class="pname">総会出席（2時間）</span><span class="pamt">44,000円 <small>＋交通費</small></span></div>
-          <div class="price-row"><span class="pname">組合員説明会</span><span class="pamt">44,000円〜</span></div>
-          <div class="price-row"><span class="pname">追加時間</span><span class="pamt">11,000円 <small>／1時間</small></span></div>
-        </div>
-      </details>
-      <details class="acc-item reveal">
-        <summary>管理規約・使用細則・議案<span class="arrow"></span></summary>
-        <div class="acc-body">
-          <div class="price-row"><span class="pname">管理規約 簡易診断</span><span class="pamt">55,000円〜</span></div>
-          <div class="price-row"><span class="pname">管理規約 部分改正</span><span class="pamt">110,000円〜</span></div>
-          <div class="price-row"><span class="pname">管理規約 全面改正</span><span class="pamt">330,000円〜</span></div>
-          <div class="price-row"><span class="pname">使用細則 改正</span><span class="pamt">55,000円〜 <small>／件</small></span></div>
-          <div class="price-row"><span class="pname">使用細則 新規作成</span><span class="pamt">88,000円〜 <small>／件</small></span></div>
-          <div class="price-row"><span class="pname">総会議案書案 作成</span><span class="pamt">33,000円〜 <small>／議案</small></span></div>
-        </div>
-      </details>
-      <details class="acc-item reveal">
-        <summary>管理委託契約・管理会社対応<span class="arrow"></span></summary>
-        <div class="acc-body">
-          <div class="price-row"><span class="pname">管理委託契約・仕様書 診断</span><span class="pamt">110,000円〜</span></div>
-          <div class="price-row"><span class="pname">管理会社との契約条件 見直し</span><span class="pamt">220,000円〜</span></div>
-          <div class="price-row"><span class="pname">管理会社変更支援</span><span class="pamt">440,000円〜</span></div>
-        </div>
-      </details>
-      <details class="acc-item reveal">
-        <summary>長期修繕計画・修繕積立金<span class="arrow"></span></summary>
-        <div class="acc-body">
-          <div class="price-row"><span class="pname">長期修繕計画 簡易診断</span><span class="pamt">110,000円〜</span></div>
-          <div class="price-row"><span class="pname">修繕積立金 シミュレーション</span><span class="pamt">110,000円〜</span></div>
-          <div class="price-row"><span class="pname">長期修繕計画 見直し支援</span><span class="pamt">330,000円〜</span></div>
-          <div class="price-row"><span class="pname">修繕積立金 改定・合意形成支援</span><span class="pamt">220,000円〜</span></div>
-          <div class="price-row"><span class="pname">修繕委員会 顧問</span><span class="pamt">55,000円〜 <small>／月</small></span></div>
-        </div>
-      </details>
+    <p class="sec-desc reveal" style="text-align:center;margin-bottom:26px">対応できる業務と、大まかな料金の目安です。<strong>「オンライン完結」の業務は、現地訪問がない分、費用を抑えて対応できます。</strong></p>
+    <div class="spot-grid">
+
+      <div class="spot-card reveal">
+        <div class="sc-head"><h4>相談・会議への同席</h4><span class="badge-visit">オンライン／現地</span></div>
+        <ul>
+          <li>個別のオンライン相談・助言</li>
+          <li>理事会・総会・組合員説明会への出席</li>
+          <li>当日の進行・説明のサポート</li>
+        </ul>
+        <div class="sc-price">料金の目安<br><strong>オンライン相談：1回 1万円台〜</strong><br>現地での会議出席：1回 数万円台〜（＋交通費）</div>
+      </div>
+
+      <div class="spot-card reveal">
+        <div class="sc-head"><h4>規約・細則・議案の作成／改正</h4><span class="badge-online">オンライン完結可</span></div>
+        <ul>
+          <li>管理規約・使用細則の診断</li>
+          <li>管理規約・使用細則の改正・新規作成</li>
+          <li>総会議案書案の作成</li>
+        </ul>
+        <div class="sc-price">料金の目安（現地訪問なしで対応可能）<br><strong>数万円台〜数十万円台</strong><br>改正の範囲・分量によって変わります。</div>
+      </div>
+
+      <div class="spot-card reveal">
+        <div class="sc-head"><h4>管理委託契約・管理会社対応</h4><span class="badge-online">オンライン中心</span></div>
+        <ul>
+          <li>管理委託契約・仕様書の診断</li>
+          <li>契約条件の見直し</li>
+          <li>管理会社変更の支援</li>
+        </ul>
+        <div class="sc-price">料金の目安<br><strong>十数万円台〜数十万円台</strong><br>対象範囲・進め方によって変わります。</div>
+      </div>
+
+      <div class="spot-card reveal">
+        <div class="sc-head"><h4>長期修繕計画・修繕積立金</h4><span class="badge-online">計画作成はオンライン完結可</span></div>
+        <ul>
+          <li>長期修繕計画の診断・見直し・作成</li>
+          <li>修繕積立金のシミュレーション・改定支援</li>
+          <li>修繕委員会の顧問（継続）</li>
+        </ul>
+        <div class="sc-price">料金の目安<br><strong>診断・計画作成：数十万円台〜</strong><br>修繕委員会顧問：月額 数万円台〜</div>
+      </div>
+
     </div>
-    <p class="price-note reveal">スポット業務の表示もすべて税込・目安です。「〜」は、規模・内容により金額が変わる項目です。交通費は実費、遠方対応や規定回数を超える会議出席は別料金となります。正式な料金は個別にお見積りします。</p>
+    <p class="price-note reveal">上記はすべて税込・大まかな目安です。分量・難易度・対応方法（オンライン／現地）により変動します。現地での会議出席等には交通費（実費）を申し受けます。正式な料金は、業務範囲を確認のうえ個別にお見積りします。</p>
   </div>
 </section>
 
